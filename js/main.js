@@ -21,6 +21,11 @@ var cards = [
     }]
 var cardsInPlay = [];
 
+//randomizes cards
+var random = cards[Math.floor(Math.random() * cards.length)];
+
+
+//checks to see if cards match and alerts user
 var checkForMatch = function() {
     if(cardsInPlay[0] === cardsInPlay[1]) {
         alert("You found a match!");
@@ -53,4 +58,9 @@ var createBoard = function() {
     }
 };
 
+//randomize order of cards
+//var random = cards[Math.floor(Math.random() * cards.length)];
+//var switchCards = document.getElementById("change-quote").onclick = random;
+
 createBoard();
+random();

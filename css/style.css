@@ -58,6 +58,14 @@ p {
 img {
     margin: 40px 8px 0 8px;
 }
+#reset {
+    width: 100px;
+    height: 40px;
+    background-color: #00a6b3;
+    font-size: 24px;
+    color: #0d2c40;
+    border-radius: 5px;
+}
 footer {
     text-transform: uppercase;
     padding: 0 20px;

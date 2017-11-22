@@ -50,43 +50,54 @@ var randomize = cards[Math.floor(Math.random() * cards.length)];
 var checkForMatch = function() {
     if(cardsInPlay[0] === cardsInPlay[1]) {
         alert("You found a match!");
+        updateScore()
      }
+     
     else {
          alert("Sorry, try again.");
      }
-     updateScore()
 };
 
 var checkForMatch2 = function() {
     if(cardsInPlay[2] === cardsInPlay[3]) {
         alert("You found a match!");
+        updateScore()
      }
     else {
         alert("Sorry, try again.");
     }
-    updateScore()
 }
 
 var checkForMatch3 = function() {
     if(cardsInPlay[4] === cardsInPlay[5]) {
         alert("You found a match!");
+        updateScore()
      }
     else {
         alert("Sorry, try again.");
     }
-    updateScore()
 }
 
 var checkForMatch4 = function() {
     if(cardsInPlay[6] === cardsInPlay[7]) {
         alert("You found a match!");
+        updateScore()
      }
     else {
         alert("Sorry, try again.");
     }
-    updateScore()
+}
+var checkForMatch5 = function() {
+    if(cardsInPlay[8] === cardsInPlay[9]) {
+        alert("You found a match!");
+        updateScore()
+     }
+    else {
+        alert("Sorry, try again.");
+    }
 }
 
+//displays back of card to html and then flips over to front of the card when clicked
 var flipCard = function() {
     var cardId = this.getAttribute("data-id", cards[0].rank)
     this.setAttribute("src", cards[cardId].cardImage)
@@ -102,6 +113,9 @@ var flipCard = function() {
     if(cardsInPlay.length === 8) {
         checkForMatch4(); 
     };
+    if(cardsInPlay.length === 10) {
+        checkForMatch5(); 
+    };
     console.log("User flipped " + cards[cardId].rank)
     console.log(cards[cardId].cardImage)
     console.log(cards[cardId].suit)
@@ -109,8 +123,14 @@ var flipCard = function() {
 };
 
 //if all cards have been played flip cards back over
+var flipBack = function() {
+        if(cardsInPlay[0] !== cardsInPlay[1]) {
+            var cardId = this.getAttribute("data-id", cards[0].cardImage)
+            this.setAttribute("src", "images/back.png")
+        }
+}
 
-//displays back of card to html and then flips over to front of the card when clicked
+//displays cards on the board
 var createBoard = function() {
     for (var i = 0; i < cards.length; i++) {
         var cardElement = document.createElement("img")

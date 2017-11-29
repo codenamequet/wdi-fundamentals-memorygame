@@ -39,12 +39,11 @@ var cards = [
     suit: "hearts",
     cardImage: "images/king-of-hearts.png"
     },]
+
 var cardsInPlay = [];
 
 //randomizes cards
-var randomize = cards[Math.floor(Math.random() * cards.length)];
-
-
+//var randomize = cards[Math.floor(Math.random() * cards.length)];
 
 //checks to see if cards match and alerts user
 var checkForMatch = function() {
@@ -55,6 +54,7 @@ var checkForMatch = function() {
      
     else {
          alert("Sorry, try again.");
+         //cardBack()
      }
 };
 
@@ -97,7 +97,7 @@ var checkForMatch5 = function() {
     }
 }
 
-//displays back of card to html and then flips over to front of the card when clicked
+//flips card over when clicked
 var flipCard = function() {
     var cardId = this.getAttribute("data-id", cards[0].rank)
     this.setAttribute("src", cards[cardId].cardImage)
@@ -122,13 +122,11 @@ var flipCard = function() {
     cardsInPlay.push(cards[cardId].rank)
 };
 
-//if all cards have been played flip cards back over
-var flipBack = function() {
-        if(cardsInPlay[0] !== cardsInPlay[1]) {
-            var cardId = this.getAttribute("data-id", cards[0].cardImage)
-            this.setAttribute("src", "images/back.png")
-        }
-}
+//if card doesn't match flip it back over
+/*var cardBack = function() {
+    var cardId = this.getAttribute("data-id", cards[0].rank);
+    this.setAttribute("src", "images/back.png");
+}*/
 
 //displays cards on the board
 var createBoard = function() {
@@ -150,11 +148,6 @@ var updateScore = function() {
     console.log(newScore)
     document.getElementById("score").appendChild(points);
 };
-
-
-//randomize order of cards
-//var switchCards = document.getElementById("change-quote").onclick = randomize;
-//can make a for loop that incriments by 1 when user gets matches
 
 createBoard();
 
